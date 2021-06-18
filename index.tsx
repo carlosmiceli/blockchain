@@ -44,7 +44,7 @@ class Chain {
 
     mine(nonce: number) {
         let solution = 1;
-        console.log('&#9935 mining...')
+        console.log('⛏️ mining...')
 
         while (true) {
 
@@ -106,3 +106,15 @@ class Wallet {
         Chain.instance.addBlock(transaction, this.publicKey, signature);
     }
 }
+
+const viejo = new Wallet()
+const marton = new Wallet()
+const carri = new Wallet()
+const pato = new Wallet()
+
+viejo.sendMoney(100, marton.publicKey)
+marton.sendMoney(200, carri.publicKey)
+carri.sendMoney(300, pato.publicKey)
+pato.sendMoney(400, viejo.publicKey)
+
+console.log(Chain.instance)
